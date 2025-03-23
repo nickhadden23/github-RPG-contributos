@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub RPG Contributors</title>
+  <script type="module" src="./github-rpg-contributors.js"></script>
+</head>
+<body>
+  <h1>GitHub RPG Contributors Demo</h1>
+
+  <github-rpg-contributors organization="haxtheweb" repo="web components" limit="6"></github-rpg-contributors>
+
+  <github-rpg-contributors organization="facebook" repo="react" limit="4"></github-rpg-contributors>
+
+  <h2>Custom Repo</h2>
+  <input id="orgInput" placeholder="Organization" />
+  <input id="repoInput" placeholder="Repo" />
+  <input id="limitInput" placeholder="Limit" type="number" />
+  <button onclick="updateRepo()">Update</button>
+
+  <script>
+    function updateRepo() {
+      const org = document.getElementById('orgInput').value;
+      const repo = document.getElementById('repoInput').value;
+      const limit = parseInt(document.getElementById('limitInput').value, 10);
+      const component = document.createElement('github-rpg-contributors');
+      component.organization = org;
+      component.repo = repo;
+      component.limit = limit;
+      document.body.appendChild(component);
+    }
+  </script>
+</body>
+</html>
